@@ -1,11 +1,10 @@
 import React from 'react';
-import Button from '@mui/material/Button';
+import Register from './pages/Register';
 
 function App() {
 	return (
 		<div className='App'>
-			<h2>Hello</h2>
-			<Button>testing...</Button>
+			<Register />
 		</div>
 	);
 }

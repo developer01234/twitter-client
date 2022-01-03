@@ -2,7 +2,7 @@
 import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 
-const theme = createTheme({
+export const theme = createTheme({
 	typography: {
 		fontFamily: [
 			'system-ui',
@@ -22,6 +22,9 @@ const theme = createTheme({
 			contrastText: '#fff',
 		},
 		secondary: {
+			main: 'rgb(26, 145,218)',
+		},
+		error: {
 			main: red.A400,
 		},
 		background: {
@@ -87,5 +90,3 @@ const theme = createTheme({
 		},
 	},
 });
-
-export default theme;
