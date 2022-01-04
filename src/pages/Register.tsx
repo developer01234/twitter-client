@@ -6,12 +6,12 @@ import SearchIcon from "@material-ui/icons/Search";
 import PeopleIcon from "@material-ui/icons/PeopleOutline";
 import MessageIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import Button from "@mui/material/Button";
-import CloseIcon from "@mui/icons-material/CloseOutlined";
-import DialogTitle from "@mui/material/DialogTitle";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
+import { DialogBlock } from "../components/Dialog/Dialog";
+import FormControl from "@mui/material/FormControl";
+import FormGroup from "@mui/material/FormGroup";
+import TextField from "@mui/material/TextField";
 
-const useStyles = makeStyles((theme) => ({
+export const RegisterUseStyles = makeStyles((theme) => ({
 	wrapper: { display: "flex", height: "100vh" },
 	BlockLeft: {
 		backgroundColor: "#71C9F8",
@@ -66,18 +66,20 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: 45,
 		color: "rgb(29, 161, 242)",
 	},
+	BlockRightField: { marginBottom: 18 },
 }));
 
 function Register() {
-	const [open, setOpen] = React.useState(false);
+	const classes = RegisterUseStyles();
+	const [openRegister, setOpenRegister] = React.useState(false);
+
+	const handleClose = () => {
+		setOpenRegister(false);
+	};
 
 	const handleClickOpen = () => {
-		setOpen(true);
+		setOpenRegister(true);
 	};
-	const handleClose = () => {
-		setOpen(false);
-	};
-	const classes = useStyles();
 
 	return (
 		<div className={classes.wrapper}>
@@ -134,19 +136,52 @@ function Register() {
 					>
 						Sign In
 					</Button>
-					<Dialog open={open} onClose={handleClose}>
-						<DialogTitle id="form-dialog-title">
-							<CloseIcon
-								onClick={handleClose}
-								color="secondary"
-								aria-label="close"
-							>
-								<CloseIcon style={{ fontSize: 26 }} />
-							</CloseIcon>
-							Setting search
-						</DialogTitle>
-						<DialogContent>testing...</DialogContent>
-					</Dialog>
+					<DialogBlock
+						open={openRegister}
+						onClose={handleClose}
+						classes={classes}
+						title="Login to Twitter"
+					>
+						<FormControl component="fieldset" fullWidth>
+							<FormGroup aria-label="position" row>
+								<TextField
+									className={classes.BlockRightField}
+									autoFocus
+									id="email"
+									label="Email Address"
+									InputLabelProps={{
+										shrink: true,
+									}}
+									variant="filled"
+									type="email"
+									fullWidth
+								/>
+								<TextField
+									className={classes.BlockRightField}
+									autoFocus
+									id="password"
+									label="Password"
+									InputLabelProps={{
+										shrink: true,
+									}}
+									variant="filled"
+									type="password"
+									fullWidth
+								/>
+								<Button
+									onClick={handleClose}
+									variant="contained"
+									color="primary"
+									fullWidth
+								>
+									Login
+								</Button>
+								<br />
+								<br />
+								<br />
+							</FormGroup>
+						</FormControl>
+					</DialogBlock>
 				</div>
 			</section>
 		</div>
