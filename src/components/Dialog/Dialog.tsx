@@ -18,13 +18,21 @@ export const DialogBlock: React.FC<DialogBlockProps> = ({
 	children,
 	onClose,
 	open = false,
-}): React.ReactElement => {
+}: DialogBlockProps): React.ReactElement | null => {
+	if (!open) {
+		return null;
+	}
+
 	return (
 		<Dialog open={open} onClose={onClose}>
 			<DialogTitle style={{ fontWeight: 800 }} id="form-dialog-title">
 				<CloseIcon
 					onClick={onClose}
-					style={{ color: "rgb(26, 145,218)", paddingRight: 30 }}
+					style={{
+						color: "rgb(26, 145,218)",
+						paddingRight: 30,
+						cursor: "pointer",
+					}}
 					aria-label="close"
 				>
 					<CloseIcon style={{ fontSize: 26 }} />

@@ -66,19 +66,27 @@ export const RegisterUseStyles = makeStyles((theme) => ({
 		fontSize: 45,
 		color: "rgb(29, 161, 242)",
 	},
-	BlockRightField: { marginBottom: 18 },
+	BlockRightField: { marginBottom: 30 },
 }));
 
 function Register() {
 	const classes = RegisterUseStyles();
-	const [openRegister, setOpenRegister] = React.useState(false);
+	const [openModel, setOpenModel] = React.useState<"Login" | "Register">();
 
-	const handleClose = () => {
-		setOpenRegister(false);
+	const handleCloseRegister = (): void => {
+		setOpenModel(undefined);
 	};
 
-	const handleClickOpen = () => {
-		setOpenRegister(true);
+	const handleCloseLogin = (): void => {
+		setOpenModel(undefined);
+	};
+
+	const handleClickOpenRegister = (): void => {
+		setOpenModel("Register");
+	};
+
+	const handleClickOpenLogin = (): void => {
+		setOpenModel("Login");
 	};
 
 	return (
@@ -120,7 +128,9 @@ function Register() {
 					<Typography>
 						<b>Join Twitter now!</b>
 					</Typography>
+					<br />
 					<Button
+						onClick={handleClickOpenRegister}
 						style={{ marginBottom: 20 }}
 						variant="contained"
 						color="primary"
@@ -129,7 +139,7 @@ function Register() {
 						Sign Up
 					</Button>
 					<Button
-						onClick={handleClickOpen}
+						onClick={handleClickOpenLogin}
 						variant="outlined"
 						color="primary"
 						fullWidth
@@ -137,10 +147,69 @@ function Register() {
 						Sign In
 					</Button>
 					<DialogBlock
-						open={openRegister}
-						onClose={handleClose}
+						open={openModel === "Register"}
+						onClose={handleCloseRegister}
 						classes={classes}
-						title="Login to Twitter"
+						title="Create your account"
+					>
+						<FormControl component="fieldset" fullWidth>
+							<FormGroup aria-label="position" row>
+								<TextField
+									className={classes.BlockRightField}
+									autoFocus
+									id="name"
+									label="Name"
+									InputLabelProps={{
+										shrink: true,
+									}}
+									variant="filled"
+									type="text"
+									fullWidth
+								/>
+								<TextField
+									className={classes.BlockRightField}
+									autoFocus
+									id="email"
+									label="Email Address"
+									InputLabelProps={{
+										shrink: true,
+									}}
+									variant="filled"
+									type="email"
+									fullWidth
+								/>
+								<TextField
+									className={classes.BlockRightField}
+									autoFocus
+									id="password"
+									label="Password"
+									InputLabelProps={{
+										shrink: true,
+									}}
+									variant="filled"
+									type="password"
+									fullWidth
+								/>
+								<Button
+									onClick={handleCloseLogin}
+									variant="contained"
+									color="primary"
+									fullWidth
+								>
+									Register
+								</Button>
+								<br />
+								<br />
+								<br />
+							</FormGroup>
+						</FormControl>
+					</DialogBlock>
+					{/* Login */}
+					<DialogBlock
+						open={openModel === "Login"}
+						onClose={handleClickOpenLogin}
+						classes={classes}
+						title="Sign in to Twitter"
 					>
 						<FormControl component="fieldset" fullWidth>
 							<FormGroup aria-label="position" row>
@@ -169,7 +238,7 @@ function Register() {
 									fullWidth
 								/>
 								<Button
-									onClick={handleClose}
+									onClick={handleCloseLogin}
 									variant="contained"
 									color="primary"
 									fullWidth
