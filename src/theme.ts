@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { createTheme } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
 
 export const theme = createTheme({
 	typography: {
@@ -17,15 +16,15 @@ export const theme = createTheme({
 	},
 	palette: {
 		primary: {
-			main: "rgb(29, 161,242)",
-			dark: "rgb(26, 145,218)",
+			main: "#1DA1F2",
+			dark: "#1A91DA",
 			contrastText: "#fff",
 		},
 		secondary: {
-			main: "rgb(26, 145,218)",
+			main: "#1A91DA",
 		},
 		error: {
-			main: red.A400,
+			main: "#ff1744",
 		},
 		background: {
 			default: "#fff",
@@ -46,7 +45,7 @@ export const theme = createTheme({
 				paddingRigth: 20,
 			},
 			outlinedPrimary: {
-				borderColor: "rgb(29, 161, 243)",
+				borderColor: "#1DA1F2",
 			},
 		},
 		MuiFilledInput: {
@@ -75,7 +74,7 @@ export const theme = createTheme({
 		},
 		MuiDialogTitle: {
 			root: {
-				borderBottom: "1px solid rgb(204, 214, 221)",
+				borderBottom: "1px solid #CCD6DD",
 				marginBottom: 10,
 				padding: "10px 15px",
 				"& h2": {

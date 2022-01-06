@@ -4,6 +4,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import { RegisterUseStyles } from "../../pages/Register";
+import IconButton from "@material-ui/core/IconButton";
 
 interface DialogBlockProps {
 	classes?: ReturnType<typeof RegisterUseStyles>;
@@ -26,7 +27,7 @@ export const DialogBlock: React.FC<DialogBlockProps> = ({
 	return (
 		<Dialog open={open} onClose={onClose}>
 			<DialogTitle style={{ fontWeight: 800 }} id="form-dialog-title">
-				<CloseIcon
+				<IconButton
 					onClick={onClose}
 					style={{
 						color: "rgb(26, 145,218)",
@@ -36,7 +37,7 @@ export const DialogBlock: React.FC<DialogBlockProps> = ({
 					aria-label="close"
 				>
 					<CloseIcon style={{ fontSize: 26 }} />
-				</CloseIcon>
+				</IconButton>
 				{title}
 				<hr />
 			</DialogTitle>

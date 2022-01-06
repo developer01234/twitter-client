@@ -1,10 +1,12 @@
-import React from 'react';
-import Register from './pages/Register';
+import React from "react";
+import { Home } from "./pages/Home";
+import { Register } from "./pages/Register";
 
 function App() {
 	return (
-		<div className='App'>
+		<div className="App">
 			<Register />
+			<Home />
 		</div>
 	);
 }

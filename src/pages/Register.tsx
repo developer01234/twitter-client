@@ -41,9 +41,9 @@ export const RegisterUseStyles = makeStyles((theme) => ({
 		left: "50%",
 		top: "53%",
 		transform: "translate(-50%, -50%)",
-		width: "350%",
-		height: "350%",
-		color: "rgb(29, 161, 243)",
+		width: "260%",
+		height: "260%",
+		color: "#1DA1F2",
 	},
 	BlockLeftListItem: { marginBottom: 40 },
 	BlockLeftListIcon: { fontSize: 32, marginRight: 15 },
@@ -64,12 +64,18 @@ export const RegisterUseStyles = makeStyles((theme) => ({
 	},
 	TwitterIcon: {
 		fontSize: 45,
-		color: "rgb(29, 161, 242)",
+		color: "#1DA1F2",
 	},
 	BlockRightField: { marginBottom: 30 },
+	registerFormControl: {
+		marginBottom: 30,
+	},
+	loginFormControl: {
+		marginBottom: 30,
+	},
 }));
 
-function Register() {
+export const Register: React.FC = (): React.ReactElement => {
 	const classes = RegisterUseStyles();
 	const [openModel, setOpenModel] = React.useState<"Login" | "Register">();
 
@@ -152,7 +158,11 @@ function Register() {
 						classes={classes}
 						title="Create your account"
 					>
-						<FormControl component="fieldset" fullWidth>
+						<FormControl
+							className={classes.registerFormControl}
+							component="fieldset"
+							fullWidth
+						>
 							<FormGroup aria-label="position" row>
 								<TextField
 									className={classes.BlockRightField}
@@ -198,9 +208,6 @@ function Register() {
 								>
 									Register
 								</Button>
-								<br />
-								<br />
-								<br />
 							</FormGroup>
 						</FormControl>
 					</DialogBlock>
@@ -211,7 +218,11 @@ function Register() {
 						classes={classes}
 						title="Sign in to Twitter"
 					>
-						<FormControl component="fieldset" fullWidth>
+						<FormControl
+							className={classes.loginFormControl}
+							component="fieldset"
+							fullWidth
+						>
 							<FormGroup aria-label="position" row>
 								<TextField
 									className={classes.BlockRightField}
@@ -245,9 +256,6 @@ function Register() {
 								>
 									Login
 								</Button>
-								<br />
-								<br />
-								<br />
 							</FormGroup>
 						</FormControl>
 					</DialogBlock>
@@ -255,6 +263,4 @@ function Register() {
 			</section>
 		</div>
 	);
-}
-
-export default Register;
+};
