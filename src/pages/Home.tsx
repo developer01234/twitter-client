@@ -1,6 +1,7 @@
-import { Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography, styled } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
+import InputBase from "@mui/material/InputBase";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
@@ -12,6 +13,7 @@ import ListIcon from "@material-ui/icons/AssignmentOutlined";
 import UserIcon from "@material-ui/icons/PersonOutlineOutlined";
 
 export const HomeUseStyles = makeStyles((theme) => ({
+	wrapper: { height: "100vh" },
 	sidebarList: { listStyle: "none", margin: 0, padding: 0 },
 	sidebarListItem: { display: "flex", alignItems: "center" },
 	sidebarListItemLabel: {
@@ -24,18 +26,27 @@ export const HomeUseStyles = makeStyles((theme) => ({
 	},
 }));
 
+export const SearchTwitter = styled(InputBase)({
+	input: {
+		borderRadius: 30,
+		backgroundColor: "#E6ECF0",
+		padding: 0,
+		height: "50px",
+	},
+});
+
 export const Home = () => {
 	const classes = HomeUseStyles();
 	return (
-		<section>
+		<Container maxWidth="lg" className={classes.wrapper}>
 			<Grid container spacing={3}>
-				<Grid item xs={1}>
+				<Grid item xs={3}>
 					<ul className={classes.sidebarList}>
 						<li className={classes.sidebarListItem}>
 							<IconButton aria-label="delete">
 								<TwitterIcon
 									className={classes.sidebarListItemIcon}
-									style={{ color: "#1DA1F3" }}
+									style={{ color: "#1DA1F3", fontSize: 36, margin: "10px 0" }}
 								/>
 							</IconButton>
 						</li>
@@ -97,13 +108,13 @@ export const Home = () => {
 						</li>
 					</ul>
 				</Grid>
-				<Grid item xs={7}>
+				<Grid item xs={6}>
 					test
 				</Grid>
-				<Grid item xs={4}>
-					test
+				<Grid item xs={3}>
+					<SearchTwitter placeholder="Search Twitter" fullWidth />
 				</Grid>
 			</Grid>
-		</section>
+		</Container>
 	);
 };

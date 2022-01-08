@@ -98,7 +98,7 @@ export const Register: React.FC = (): React.ReactElement => {
 	return (
 		<div className={classes.wrapper}>
 			<section className={classes.BlockLeft}>
-				<TwitterIcon color="primary" className={classes.BlockLeftBigIcon} />
+				<TwitterIcon className={classes.BlockLeftBigIcon} />
 				<ul className={classes.BlockLeftList}>
 					<li className={classes.BlockLeftListItem}>
 						<Typography variant="h6">
