@@ -1,4 +1,12 @@
-import { Container, Grid, Typography, styled } from "@mui/material";
+import {
+	Container,
+	Grid,
+	Typography,
+	styled,
+	Paper,
+	Avatar,
+} from "@mui/material";
+import { grey } from "@mui/material/colors";
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import InputBase from "@mui/material/InputBase";
@@ -11,6 +19,7 @@ import MailIcon from "@material-ui/icons/MailOutline";
 import BookIcon from "@material-ui/icons/BookmarkBorder";
 import ListIcon from "@material-ui/icons/AssignmentOutlined";
 import UserIcon from "@material-ui/icons/PersonOutlineOutlined";
+import StarsIcon from "@mui/icons-material/AutoAwesomeOutlined";
 
 export const HomeUseStyles = makeStyles((theme) => ({
 	wrapper: { height: "100vh" },
@@ -23,6 +32,28 @@ export const HomeUseStyles = makeStyles((theme) => ({
 	},
 	sidebarListItemIcon: {
 		fontSize: 28,
+	},
+	tweetsSide: {
+		borderRadius: 0,
+		height: "100%",
+		borderTop: "0",
+		borderBottom: "0",
+	},
+	tweetsHead: {
+		borderRadius: 0,
+		borderTop: "0",
+		borderLeft: "0",
+		borderRight: "0",
+		padding: "10px 15px",
+		"& h6": {
+			fontWeight: 600,
+		},
+	},
+	tweets: {
+		padding: "10px 15px",
+	},
+	tweetsName: {
+		color: grey[500],
 	},
 }));
 
@@ -109,7 +140,36 @@ export const Home = () => {
 					</ul>
 				</Grid>
 				<Grid item xs={6}>
-					test
+					<Paper className={classes.tweetsSide} variant="outlined">
+						<Paper className={classes.tweetsHead} variant="outlined">
+							<Typography variant="h6">
+								Home
+								<IconButton aria-label="delete">
+									<StarsIcon />
+								</IconButton>
+							</Typography>
+						</Paper>
+						<Paper className={classes.tweets} variant="outlined">
+							<Grid container spacing={3}>
+								<Grid item xs={1}>
+									<Avatar
+										alt="User"
+										src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VwZXJtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+									/>
+								</Grid>
+								<Grid item xs={11}>
+									<Typography>
+										<b>test</b>{" "}
+										<span className={classes.tweetsName}>@tester</span>
+									</Typography>
+									<Typography variant="body1" gutterBottom>
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Quas, aperiam!
+									</Typography>
+								</Grid>
+							</Grid>
+						</Paper>
+					</Paper>
 				</Grid>
 				<Grid item xs={3}>
 					<SearchTwitter placeholder="Search Twitter" fullWidth />
