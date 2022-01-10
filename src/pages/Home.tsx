@@ -20,6 +20,11 @@ import BookIcon from "@material-ui/icons/BookmarkBorder";
 import ListIcon from "@material-ui/icons/AssignmentOutlined";
 import UserIcon from "@material-ui/icons/PersonOutlineOutlined";
 import StarsIcon from "@mui/icons-material/AutoAwesomeOutlined";
+import CommentIcon from "@mui/icons-material/ModeCommentOutlined";
+import RepostIcon from "@mui/icons-material/RepeatOutlined";
+import LikeIcon from "@mui/icons-material/FavoriteBorder";
+import UploadIcon from "@mui/icons-material/FileUploadOutlined";
+import classNames from "classnames";
 
 export const HomeUseStyles = makeStyles((theme) => ({
 	wrapper: { height: "100vh" },
@@ -49,8 +54,15 @@ export const HomeUseStyles = makeStyles((theme) => ({
 			fontWeight: 600,
 		},
 	},
+	tweetsIcons: { display: "flex", justifyContent: "space-between", width: 450 },
 	tweets: {
 		padding: "10px 15px",
+	},
+	tweet: {
+		cursor: "pointer",
+		"&:hover": {
+			backgroundColor: "rgb(245, 248, 250)",
+		},
 	},
 	tweetsName: {
 		color: grey[500],
@@ -149,7 +161,10 @@ export const Home = () => {
 								</IconButton>
 							</Typography>
 						</Paper>
-						<Paper className={classes.tweets} variant="outlined">
+						<Paper
+							className={classNames(classes.tweet, classes.tweetsHead)}
+							variant="outlined"
+						>
 							<Grid container spacing={3}>
 								<Grid item xs={1}>
 									<Avatar
@@ -166,6 +181,30 @@ export const Home = () => {
 										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
 										Quas, aperiam!
 									</Typography>
+									<div className={classes.tweetsIcons}>
+										{/* TODO: write hover */}
+										<div>
+											<IconButton style={{ color: "#1A91DA" }}>
+												<CommentIcon style={{ fontSize: 20 }} />
+											</IconButton>
+											<span style={{ fontSize: 14 }}>1</span>
+										</div>
+										<div>
+											<IconButton style={{ color: "#1A91DA" }}>
+												<RepostIcon style={{ fontSize: 20 }} />
+											</IconButton>
+										</div>
+										<div>
+											<IconButton style={{ color: "#1A91DA" }}>
+												<LikeIcon style={{ fontSize: 20 }} />
+											</IconButton>
+										</div>
+										<div>
+											<IconButton style={{ color: "#1A91DA" }}>
+												<UploadIcon style={{ fontSize: 20 }} />
+											</IconButton>
+										</div>
+									</div>
 								</Grid>
 							</Grid>
 						</Paper>
