@@ -39,7 +39,9 @@ export const Tweet: React.FC<TweetBlockProps> = ({
 				<Grid item xs={11}>
 					<Typography>
 						<b>{user.fullname}</b>{" "}
-						<span className={classes.tweetsName}>@{user.username}</span>
+						<span className={classes.tweetsName}>@{user.username}</span>&nbsp;
+						<span className={classes.tweetsName}>·</span>&nbsp;
+						<span className={classes.tweetsName}>1h</span>
 					</Typography>
 					<Typography variant="body1" gutterBottom>
 						{text}

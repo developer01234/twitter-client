@@ -10,22 +10,27 @@ import { grey } from "@mui/material/colors";
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import InputBase from "@mui/material/InputBase";
-import TwitterIcon from "@material-ui/icons/Twitter";
 import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
-import HomeIcon from "@material-ui/icons/Home";
-import NotificationIcon from "@material-ui/icons/NotificationsOutlined";
-import MailIcon from "@material-ui/icons/MailOutline";
-import BookIcon from "@material-ui/icons/BookmarkBorder";
-import ListIcon from "@material-ui/icons/AssignmentOutlined";
-import UserIcon from "@material-ui/icons/PersonOutlineOutlined";
 import StarsIcon from "@mui/icons-material/AutoAwesomeOutlined";
 import { Tweet } from "../components/Tweet/Tweet";
+import { Sidebar } from "../components/Sidebar/Sidebar";
 
 export const HomeUseStyles = makeStyles((theme: Theme) => ({
 	wrapper: { height: "100vh" },
 	sidebarList: { listStyle: "none", margin: 0, padding: 0 },
-	sidebarListItem: { display: "flex", alignItems: "center" },
+	sidebarListItem: {
+		"& div": {
+			cursor: "pointer",
+			display: "inline-flex",
+			alignItems: "center",
+			padding: "0 5px",
+			borderRadius: 30,
+			height: 58,
+			"&:hover": {
+				backgroundColor: "rgba(29, 161, 242, 0.1)",
+			},
+		},
+	},
 	sidebarListItemLabel: {
 		fontWeight: 700,
 		fontSize: 20,
@@ -63,8 +68,8 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 		},
 	},
 	tweetAvatar: {
-		width: theme.spacing(7),
-		height: theme.spacing(7),
+		width: theme.spacing(5),
+		height: theme.spacing(5),
 	},
 	tweetsName: {
 		color: grey[500],
@@ -91,72 +96,7 @@ export const Home = () => {
 		<Container maxWidth="lg" className={classes.wrapper}>
 			<Grid container spacing={3}>
 				<Grid item xs={3}>
-					<ul className={classes.sidebarList}>
-						<li className={classes.sidebarListItem}>
-							<IconButton aria-label="delete">
-								<TwitterIcon
-									className={classes.sidebarListItemIcon}
-									style={{ color: "#1DA1F3", fontSize: 36, margin: "10px 0" }}
-								/>
-							</IconButton>
-						</li>
-						<li className={classes.sidebarListItem}>
-							<IconButton aria-label="delete">
-								<HomeIcon className={classes.sidebarListItemIcon} />
-							</IconButton>
-							<Typography className={classes.sidebarListItemLabel} variant="h6">
-								Home
-							</Typography>
-						</li>
-						<li className={classes.sidebarListItem}>
-							<IconButton aria-label="delete">
-								<SearchIcon className={classes.sidebarListItemIcon} />
-							</IconButton>
-							<Typography className={classes.sidebarListItemLabel} variant="h6">
-								Search
-							</Typography>
-						</li>
-						<li className={classes.sidebarListItem}>
-							<IconButton aria-label="delete">
-								<NotificationIcon className={classes.sidebarListItemIcon} />
-							</IconButton>
-							<Typography className={classes.sidebarListItemLabel} variant="h6">
-								Notifications
-							</Typography>
-						</li>
-						<li className={classes.sidebarListItem}>
-							<IconButton aria-label="delete">
-								<MailIcon className={classes.sidebarListItemIcon} />
-							</IconButton>
-							<Typography className={classes.sidebarListItemLabel} variant="h6">
-								Messages
-							</Typography>
-						</li>
-						<li className={classes.sidebarListItem}>
-							<IconButton aria-label="delete">
-								<BookIcon className={classes.sidebarListItemIcon} />
-							</IconButton>
-							<Typography className={classes.sidebarListItemLabel} variant="h6">
-								BookMarks
-							</Typography>
-						</li>
-						<li className={classes.sidebarListItem}>
-							<IconButton aria-label="delete">
-								<ListIcon className={classes.sidebarListItemIcon} />
-							</IconButton>
-							<Typography className={classes.sidebarListItemLabel} variant="h6">
-								Lists
-							</Typography>
-						</li>
-						<li className={classes.sidebarListItem}>
-							<IconButton aria-label="delete">
-								<UserIcon className={classes.sidebarListItemIcon} />
-							</IconButton>
-							<Typography className={classes.sidebarListItemLabel} variant="h6">
-								Profile
-							</Typography>
-						</li>
-					</ul>
+					<Sidebar classes={classes} />
 				</Grid>
 				<Grid item xs={6}>
 					<Paper className={classes.tweetsSide} variant="outlined">
@@ -168,16 +108,20 @@ export const Home = () => {
 								</IconButton>
 							</Typography>
 						</Paper>
-						<Tweet
-							user={{
-								fullname: "test",
-								username: "tester",
-								avatar:
-									"https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VwZXJtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-							}}
-							classes={classes}
-							text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, voluptatum."
-						/>
+						{[
+							...new Array(20).fill(
+								<Tweet
+									user={{
+										fullname: "test",
+										username: "tester",
+										avatar:
+											"https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VwZXJtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+									}}
+									classes={classes}
+									text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, voluptatum."
+								/>
+							),
+						]}
 					</Paper>
 				</Grid>
 				<Grid item xs={3}>
