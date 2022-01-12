@@ -67,6 +67,11 @@ export const HomeUseStyles = makeStyles((theme) => ({
 	tweetsName: {
 		color: grey[500],
 	},
+	IconButton: {
+		"&:hover": {
+			color: "#1A91DA",
+		},
+	},
 }));
 
 export const SearchTwitter = styled(InputBase)({
@@ -182,25 +187,24 @@ export const Home = () => {
 										Quas, aperiam!
 									</Typography>
 									<div className={classes.tweetsIcons}>
-										{/* TODO: write hover */}
 										<div>
-											<IconButton style={{ color: "#1A91DA" }}>
+											<IconButton className={classes.IconButton}>
 												<CommentIcon style={{ fontSize: 20 }} />
 											</IconButton>
 											<span style={{ fontSize: 14 }}>1</span>
 										</div>
 										<div>
-											<IconButton style={{ color: "#1A91DA" }}>
+											<IconButton className={classes.IconButton}>
 												<RepostIcon style={{ fontSize: 20 }} />
 											</IconButton>
 										</div>
 										<div>
-											<IconButton style={{ color: "#1A91DA" }}>
+											<IconButton className={classes.IconButton}>
 												<LikeIcon style={{ fontSize: 20 }} />
 											</IconButton>
 										</div>
 										<div>
-											<IconButton style={{ color: "#1A91DA" }}>
+											<IconButton className={classes.IconButton}>
 												<UploadIcon style={{ fontSize: 20 }} />
 											</IconButton>
 										</div>
