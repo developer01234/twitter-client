@@ -4,7 +4,7 @@ import {
 	Typography,
 	styled,
 	Paper,
-	Avatar,
+	Theme,
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import React from "react";
@@ -20,13 +20,9 @@ import BookIcon from "@material-ui/icons/BookmarkBorder";
 import ListIcon from "@material-ui/icons/AssignmentOutlined";
 import UserIcon from "@material-ui/icons/PersonOutlineOutlined";
 import StarsIcon from "@mui/icons-material/AutoAwesomeOutlined";
-import CommentIcon from "@mui/icons-material/ModeCommentOutlined";
-import RepostIcon from "@mui/icons-material/RepeatOutlined";
-import LikeIcon from "@mui/icons-material/FavoriteBorder";
-import UploadIcon from "@mui/icons-material/FileUploadOutlined";
-import classNames from "classnames";
+import { Tweet } from "../components/Tweet/Tweet";
 
-export const HomeUseStyles = makeStyles((theme) => ({
+export const HomeUseStyles = makeStyles((theme: Theme) => ({
 	wrapper: { height: "100vh" },
 	sidebarList: { listStyle: "none", margin: 0, padding: 0 },
 	sidebarListItem: { display: "flex", alignItems: "center" },
@@ -60,9 +56,15 @@ export const HomeUseStyles = makeStyles((theme) => ({
 	},
 	tweet: {
 		cursor: "pointer",
+		paddingTop: 15,
+		paddingLeft: 20,
 		"&:hover": {
 			backgroundColor: "rgb(245, 248, 250)",
 		},
+	},
+	tweetAvatar: {
+		width: theme.spacing(7),
+		height: theme.spacing(7),
 	},
 	tweetsName: {
 		color: grey[500],
@@ -166,52 +168,16 @@ export const Home = () => {
 								</IconButton>
 							</Typography>
 						</Paper>
-						<Paper
-							className={classNames(classes.tweet, classes.tweetsHead)}
-							variant="outlined"
-						>
-							<Grid container spacing={3}>
-								<Grid item xs={1}>
-									<Avatar
-										alt="User"
-										src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VwZXJtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-									/>
-								</Grid>
-								<Grid item xs={11}>
-									<Typography>
-										<b>test</b>{" "}
-										<span className={classes.tweetsName}>@tester</span>
-									</Typography>
-									<Typography variant="body1" gutterBottom>
-										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-										Quas, aperiam!
-									</Typography>
-									<div className={classes.tweetsIcons}>
-										<div>
-											<IconButton className={classes.IconButton}>
-												<CommentIcon style={{ fontSize: 20 }} />
-											</IconButton>
-											<span style={{ fontSize: 14 }}>1</span>
-										</div>
-										<div>
-											<IconButton className={classes.IconButton}>
-												<RepostIcon style={{ fontSize: 20 }} />
-											</IconButton>
-										</div>
-										<div>
-											<IconButton className={classes.IconButton}>
-												<LikeIcon style={{ fontSize: 20 }} />
-											</IconButton>
-										</div>
-										<div>
-											<IconButton className={classes.IconButton}>
-												<UploadIcon style={{ fontSize: 20 }} />
-											</IconButton>
-										</div>
-									</div>
-								</Grid>
-							</Grid>
-						</Paper>
+						<Tweet
+							user={{
+								fullname: "test",
+								username: "tester",
+								avatar:
+									"https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VwZXJtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+							}}
+							classes={classes}
+							text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, voluptatum."
+						/>
 					</Paper>
 				</Grid>
 				<Grid item xs={3}>
