@@ -2,22 +2,39 @@ import {
 	Container,
 	Grid,
 	Typography,
-	styled,
 	Paper,
 	Theme,
+	styled,
+	TextField,
+	Avatar,
+	TextareaAutosize,
+	CircularProgress,
+	Button,
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import InputBase from "@mui/material/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import StarsIcon from "@mui/icons-material/AutoAwesomeOutlined";
 import { Tweet } from "../components/Tweet/Tweet";
 import { Sidebar } from "../components/Sidebar/Sidebar";
+import SearchIcon from "@material-ui/icons/Search";
+import classNames from "classnames";
+import ImageIcon from "@mui/icons-material/ImageOutlined";
+import EmojiIcon from "@mui/icons-material/SentimentSatisfiedOutlined";
+
+// TODO: form send tweet and develop left side
 
 export const HomeUseStyles = makeStyles((theme: Theme) => ({
 	wrapper: { height: "100vh" },
-	sidebarList: { listStyle: "none", margin: 0, padding: 0, width: 230 },
+	sidebarList: {
+		position: "sticky",
+		top: 0,
+		listStyle: "none",
+		margin: 0,
+		padding: 0,
+		maxWidth: 230,
+	},
 	sidebarListItem: {
 		cursor: "pointer",
 		"&:hover": {
@@ -63,11 +80,18 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 			fontWeight: 600,
 		},
 	},
-	tweetsIcons: { display: "flex", justifyContent: "space-between", width: 450 },
+	tweetsIcons: {
+		display: "flex",
+		position: "relative",
+		left: -13,
+		justifyContent: "space-between",
+		maxWidth: 450,
+	},
 	tweets: {
 		padding: "10px 15px",
 	},
 	tweet: {
+		display: "flex",
 		cursor: "pointer",
 		paddingTop: 15,
 		paddingLeft: 20,
@@ -76,8 +100,9 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 		},
 	},
 	tweetAvatar: {
-		width: theme.spacing(5),
-		height: theme.spacing(5),
+		width: theme.spacing(6.5),
+		height: theme.spacing(6.5),
+		marginRight: 15,
 	},
 	tweetsName: {
 		color: grey[500],
@@ -91,26 +116,79 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 		padding: "30px",
 		marginTop: "50px",
 	},
+	addForm: {
+		padding: 20,
+	},
+	addFormBody: {
+		display: "flex",
+		width: "100%",
+	},
+	addFormTextarea: {
+		width: "100%",
+		border: 0,
+		fontSize: 20,
+		outline: "none",
+		fontFamily: "inherit",
+		resize: "none",
+	},
+	addFormBottom: {
+		display: "flex",
+		justifyContent: "space-between",
+		alignItems: "center",
+	},
+	addFormBottomActions: {
+		marginTop: 10,
+		paddingLeft: 70,
+	},
+	addFormBottomLine: {
+		height: 12,
+		backgroundColor: "#E6ECF0",
+	},
+	addFormCircleProgress: {
+		position: "relative",
+		width: 20,
+		height: 20,
+		margin: "0 10px",
+		"& .MuiCircularProgress-root": {
+			position: "absolute",
+		},
+	},
+	addFormBottomRigth: {
+		display: "flex",
+		alignItems: "center",
+	},
 }));
 
-export const SearchTwitter = styled(InputBase)({
+const SearchTwitter = styled(TextField)({
 	input: {
-		borderRadius: 30,
 		backgroundColor: "#E6ECF0",
 		padding: 0,
-		height: "50px",
+		paddingLeft: 15,
+		"&.Mui-focused": {
+			backgroundColor: "#fff",
+			"& fieldset": { borderWidth: 1, borderColor: "#1DA1F2" },
+			"& svg path": { fill: "#1DA1F2" },
+		},
 	},
+	"&:hover": {
+		"& fieldset": { borderColor: "transparent" },
+	},
+	"& fieldset": {
+		borderWidth: 1,
+		borderColor: "#1DA1F2",
+	},
+	"& .MuiOutlinedInput-input": { padding: "12px 14px 14px 5px" },
 });
 
-export const Home = () => {
+export const Home = (): React.ReactElement => {
 	const classes = HomeUseStyles();
 	return (
 		<Container maxWidth="lg" className={classes.wrapper}>
 			<Grid container spacing={3}>
-				<Grid item xs={3}>
+				<Grid sm={1} md={3} item>
 					<Sidebar classes={classes} />
 				</Grid>
-				<Grid item xs={6}>
+				<Grid sm={8} md={6} item>
 					<Paper className={classes.tweetsSide} variant="outlined">
 						<Paper className={classes.tweetsHead} variant="outlined">
 							<Typography variant="h6">
@@ -119,6 +197,51 @@ export const Home = () => {
 									<StarsIcon />
 								</IconButton>
 							</Typography>
+							<Paper>
+								<div className={classes.addForm}>
+									<div className={classes.addFormBody}>
+										<Avatar
+											className={classes.tweetAvatar}
+											alt={`User avatar Tester`}
+											src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VwZXJtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+										/>
+										<TextareaAutosize
+											className={classes.addFormTextarea}
+											placeholder="What`s happening?"
+										/>
+									</div>
+									<div className={classes.addFormBottom}>
+										<div
+											className={classNames(
+												classes.tweet,
+												classes.addFormBottomActions
+											)}
+										>
+											<IconButton style={{ color: "#1DA1F2" }}>
+												<ImageIcon style={{ fontSize: 26 }} />
+											</IconButton>
+											<IconButton style={{ color: "#1DA1F2" }}>
+												<EmojiIcon style={{ fontSize: 26 }} />
+											</IconButton>
+										</div>
+										<div className={classes.addFormBottomRigth}>
+											<span>280</span>
+											<div className={classes.addFormCircleProgress}>
+												<CircularProgress variant="determinate" size={20} />
+												<CircularProgress
+													style={{ color: "rgba(0, 0,0 , 0.1)" }}
+													variant="determinate"
+													size={20}
+													thickness={4}
+													value={100}
+												/>
+											</div>
+											<Button variant="contained">Tweet</Button>
+										</div>
+									</div>
+								</div>
+								<div className={classes.addFormBottomLine} />
+							</Paper>
 						</Paper>
 						{[
 							...new Array(20).fill(
@@ -136,8 +259,10 @@ export const Home = () => {
 						]}
 					</Paper>
 				</Grid>
-				<Grid item xs={3}>
-					<SearchTwitter placeholder="Search Twitter" fullWidth />
+				<Grid sm={3} md={3} item>
+					<SearchTwitter placeholder="Search Twitter" fullWidth>
+						<SearchIcon />
+					</SearchTwitter>
 				</Grid>
 			</Grid>
 		</Container>
