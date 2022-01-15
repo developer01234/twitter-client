@@ -19,16 +19,20 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 	wrapper: { height: "100vh" },
 	sidebarList: { listStyle: "none", margin: 0, padding: 0 },
 	sidebarListItem: {
+		cursor: "pointer",
+		"&:hover": {
+			"& div": { backgroundColor: "rgba(29, 161, 242, 0.1)" },
+		},
 		"& div": {
-			cursor: "pointer",
 			display: "inline-flex",
 			alignItems: "center",
-			padding: "0 5px",
+			position: "relative",
+			left: -10,
+			padding: "0 25px 0 20px",
 			borderRadius: 30,
-			height: 58,
-			"&:hover": {
-				backgroundColor: "rgba(29, 161, 242, 0.1)",
-			},
+			height: 50,
+			marginBottom: 10,
+			transition: "background-color 0.15s ease-in-out",
 		},
 	},
 	sidebarListItemLabel: {
@@ -38,6 +42,7 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 	},
 	sidebarListItemIcon: {
 		fontSize: 28,
+		marginLeft: -5,
 	},
 	tweetsSide: {
 		borderRadius: 0,

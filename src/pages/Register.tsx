@@ -37,12 +37,6 @@ export const RegisterUseStyles = makeStyles((theme) => ({
 		},
 	},
 	BlockLeftBigIcon: {
-		position: "absolute",
-		left: "50%",
-		top: "53%",
-		transform: "translate(-50%, -50%)",
-		width: "260%",
-		height: "260%",
 		color: "#1DA1F2",
 	},
 	BlockLeftListItem: { marginBottom: 40 },
@@ -98,7 +92,17 @@ export const Register: React.FC = (): React.ReactElement => {
 	return (
 		<div className={classes.wrapper}>
 			<section className={classes.BlockLeft}>
-				<TwitterIcon className={classes.BlockLeftBigIcon} />
+				<TwitterIcon
+					style={{
+						position: "absolute",
+						left: "50%",
+						top: "53%",
+						transform: "translate(-50%, -50%)",
+						width: "360%",
+						height: "360%",
+					}}
+					className={classes.BlockLeftBigIcon}
+				/>
 				<ul className={classes.BlockLeftList}>
 					<li className={classes.BlockLeftListItem}>
 						<Typography variant="h6">
@@ -201,7 +205,7 @@ export const Register: React.FC = (): React.ReactElement => {
 									fullWidth
 								/>
 								<Button
-									onClick={handleCloseLogin}
+									onClick={handleCloseRegister}
 									variant="contained"
 									color="primary"
 									fullWidth
@@ -214,7 +218,7 @@ export const Register: React.FC = (): React.ReactElement => {
 					{/* Login */}
 					<DialogBlock
 						open={openModel === "Login"}
-						onClose={handleClickOpenLogin}
+						onClose={handleCloseLogin}
 						classes={classes}
 						title="Sign in to Twitter"
 					>
