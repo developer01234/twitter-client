@@ -17,22 +17,25 @@ import { Sidebar } from "../components/Sidebar/Sidebar";
 
 export const HomeUseStyles = makeStyles((theme: Theme) => ({
 	wrapper: { height: "100vh" },
-	sidebarList: { listStyle: "none", margin: 0, padding: 0 },
+	sidebarList: { listStyle: "none", margin: 0, padding: 0, width: 230 },
 	sidebarListItem: {
 		cursor: "pointer",
 		"&:hover": {
-			"& div": { backgroundColor: "rgba(29, 161, 242, 0.1)" },
+			"& div": {
+				backgroundColor: "rgba(29, 161, 242, 0.1)",
+				"& h6": { color: "#1DA1F2" },
+				"& svg path": { fill: "#1DA1F2" },
+			},
 		},
 		"& div": {
 			display: "inline-flex",
 			alignItems: "center",
 			position: "relative",
-			left: -10,
 			padding: "0 25px 0 20px",
 			borderRadius: 30,
 			height: 50,
-			marginBottom: 10,
-			transition: "background-color 0.15s ease-in-out",
+			marginBottom: 15,
+			transition: "background-color 0.1s ease-in-out",
 		},
 	},
 	sidebarListItemLabel: {
@@ -41,7 +44,7 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 		marginLeft: 15,
 	},
 	sidebarListItemIcon: {
-		fontSize: 28,
+		fontSize: 32,
 		marginLeft: -5,
 	},
 	tweetsSide: {
@@ -83,6 +86,10 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 		"&:hover": {
 			color: "#1A91DA",
 		},
+	},
+	sidebarTweetButton: {
+		padding: "30px",
+		marginTop: "50px",
 	},
 }));
 

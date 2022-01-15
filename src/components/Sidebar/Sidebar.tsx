@@ -8,7 +8,7 @@ import ListIcon from "@material-ui/icons/AssignmentOutlined";
 import UserIcon from "@material-ui/icons/PersonOutlineOutlined";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { HomeUseStyles } from "../../pages/Home";
-import { Typography, IconButton } from "@mui/material";
+import { Typography, IconButton, Button } from "@mui/material";
 
 interface SidebarBlockProps {
 	classes: ReturnType<typeof HomeUseStyles>;
@@ -82,6 +82,15 @@ export const Sidebar: React.FC<SidebarBlockProps> = ({
 						Profile
 					</Typography>
 				</div>
+			</li>
+			<li className={classes.sidebarListItem}>
+				<Button
+					variant="contained"
+					className={classes.sidebarTweetButton}
+					fullWidth
+				>
+					Tweet
+				</Button>
 			</li>
 		</ul>
 	);
