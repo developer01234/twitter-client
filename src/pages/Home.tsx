@@ -10,6 +10,9 @@ import {
 	TextareaAutosize,
 	CircularProgress,
 	Button,
+	InputAdornment,
+	List,
+	ListItem,
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import React from "react";
@@ -157,6 +160,34 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 		display: "flex",
 		alignItems: "center",
 	},
+	rightSide: { paddingTop: 20, position: "sticky", top: 0 },
+	rightSideBlock: {
+		backgroundColor: "#f5f8fa",
+		borderRadius: 15,
+		marginTop: 20,
+		"& .MuiList-root": { paddingTop: 0 },
+	},
+	rightSideBlockHeader: {
+		borderTop: 0,
+		borderLeft: 0,
+		borderRight: 0,
+		backgroundColor: "transparent",
+		padding: "15px 18px",
+		"& b": { fontSize: 20, fontWeight: 800 },
+	},
+	rightSideBlockItem: {
+		cursor: "pointer",
+		"& .MuiTypography-body1": {
+			fontWeight: 700,
+		},
+		"& .MuiListItemAvatar-root": {
+			minWidth: 60,
+		},
+		"& .MuiListItemText-root": {
+			margin: 0,
+		},
+		"&:hover": { backgroundColor: "#edf3f6" },
+	},
 }));
 
 const SearchTwitter = styled(TextField)({
@@ -260,9 +291,28 @@ export const Home = (): React.ReactElement => {
 					</Paper>
 				</Grid>
 				<Grid sm={3} md={3} item>
-					<SearchTwitter placeholder="Search Twitter" fullWidth>
-						<SearchIcon />
-					</SearchTwitter>
+					<div className={classes.rightSide}>
+						<SearchTwitter
+							variant="outlined"
+							placeholder="Search Twitter"
+							InputProps={{
+								startAdornment: (
+									<InputAdornment position="start">
+										<SearchIcon />
+									</InputAdornment>
+								),
+							}}
+							fullWidth
+						/>
+						<Paper className={classes.rightSideBlock}>
+							<Paper className={classes.rightSideBlockHeader}>
+								<b>Trends for you</b>
+							</Paper>
+							<List>
+								<ListItem className={classes.rightSideBlockItem}>test</ListItem>
+							</List>
+						</Paper>
+					</div>
 				</Grid>
 			</Grid>
 		</Container>
