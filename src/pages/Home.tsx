@@ -13,6 +13,9 @@ import {
 	InputAdornment,
 	List,
 	ListItem,
+	ListItemText,
+	Divider,
+	ListItemAvatar,
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import React from "react";
@@ -309,7 +312,75 @@ export const Home = (): React.ReactElement => {
 								<b>Trends for you</b>
 							</Paper>
 							<List>
-								<ListItem className={classes.rightSideBlockItem}>test</ListItem>
+								<ListItem className={classes.rightSideBlockItem}>
+									<ListItemText
+										primary="Russia"
+										secondary={
+											<Typography component="span" variant="body2">
+												tweets: 400 000
+											</Typography>
+										}
+									/>
+								</ListItem>
+								<Divider component="li" />
+								<ListItem className={classes.rightSideBlockItem}>
+									<ListItemText
+										primary="#Covid19"
+										secondary={
+											<Typography component="span" variant="body2">
+												tweets: 500 000
+											</Typography>
+										}
+									/>
+								</ListItem>
+								<Divider component="li" />
+								<ListItem className={classes.rightSideBlockItem}>
+									<ListItemText
+										primary="#SARS-CoV-2"
+										secondary={
+											<Typography component="span" variant="body2">
+												tweets: 500 000
+											</Typography>
+										}
+									/>
+								</ListItem>
+								<Divider component="li" />
+							</List>
+						</Paper>
+						<Paper className={classes.rightSideBlock}>
+							<Paper className={classes.rightSideBlockHeader}>
+								<b>Who to follow</b>
+							</Paper>
+							<List>
+								<ListItem className={classes.rightSideBlockItem}>
+									<ListItemAvatar>
+										<Avatar
+											alt="@tester"
+											src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VwZXJtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+										/>
+										<b
+											style={{
+												display: "flex",
+												position: "relative",
+												top: -45,
+												paddingLeft: 50,
+											}}
+										>
+											Tester
+										</b>
+										<span
+											style={{
+												display: "flex",
+												position: "relative",
+												top: -50,
+												paddingLeft: 50,
+												color: "#9e9e9e",
+											}}
+										>
+											@tester
+										</span>
+									</ListItemAvatar>
+								</ListItem>
 							</List>
 						</Paper>
 					</div>
