@@ -33,7 +33,7 @@ export const theme = createTheme({
 			primary: "#14171a",
 		},
 	},
-	shadows: [],
+	shadows: [1],
 	overrides: {
 		MuiButton: {
 			root: {

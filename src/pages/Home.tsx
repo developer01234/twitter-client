@@ -1,22 +1,3 @@
-import {
-	Container,
-	Grid,
-	Typography,
-	Paper,
-	Theme,
-	styled,
-	TextField,
-	Avatar,
-	TextareaAutosize,
-	CircularProgress,
-	Button,
-	InputAdornment,
-	List,
-	ListItem,
-	ListItemText,
-	Divider,
-	ListItemAvatar,
-} from "@mui/material";
 import { grey } from "@mui/material/colors";
 import React from "react";
 import { makeStyles } from "@mui/styles";
@@ -25,11 +6,20 @@ import StarsIcon from "@mui/icons-material/AutoAwesomeOutlined";
 import { Tweet } from "../components/Tweet/Tweet";
 import { Sidebar } from "../components/Sidebar/Sidebar";
 import SearchIcon from "@material-ui/icons/Search";
-import classNames from "classnames";
-import ImageIcon from "@mui/icons-material/ImageOutlined";
-import EmojiIcon from "@mui/icons-material/SentimentSatisfiedOutlined";
-
-// TODO: form send tweet and develop left side
+import { TextArea } from "../components/TextArea/TextArea";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import InputAdornment from "@mui/material/InputAdornment";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Divider from "@mui/material/Divider";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import { styled, Theme } from "@mui/material/styles";
 
 export const HomeUseStyles = makeStyles((theme: Theme) => ({
 	wrapper: { height: "100vh" },
@@ -231,51 +221,7 @@ export const Home = (): React.ReactElement => {
 									<StarsIcon />
 								</IconButton>
 							</Typography>
-							<Paper>
-								<div className={classes.addForm}>
-									<div className={classes.addFormBody}>
-										<Avatar
-											className={classes.tweetAvatar}
-											alt={`User avatar Tester`}
-											src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VwZXJtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-										/>
-										<TextareaAutosize
-											className={classes.addFormTextarea}
-											placeholder="What`s happening?"
-										/>
-									</div>
-									<div className={classes.addFormBottom}>
-										<div
-											className={classNames(
-												classes.tweet,
-												classes.addFormBottomActions
-											)}
-										>
-											<IconButton style={{ color: "#1DA1F2" }}>
-												<ImageIcon style={{ fontSize: 26 }} />
-											</IconButton>
-											<IconButton style={{ color: "#1DA1F2" }}>
-												<EmojiIcon style={{ fontSize: 26 }} />
-											</IconButton>
-										</div>
-										<div className={classes.addFormBottomRigth}>
-											<span>280</span>
-											<div className={classes.addFormCircleProgress}>
-												<CircularProgress variant="determinate" size={20} />
-												<CircularProgress
-													style={{ color: "rgba(0, 0,0 , 0.1)" }}
-													variant="determinate"
-													size={20}
-													thickness={4}
-													value={100}
-												/>
-											</div>
-											<Button variant="contained">Tweet</Button>
-										</div>
-									</div>
-								</div>
-								<div className={classes.addFormBottomLine} />
-							</Paper>
+							<TextArea classes={classes} />
 						</Paper>
 						{[
 							...new Array(20).fill(
