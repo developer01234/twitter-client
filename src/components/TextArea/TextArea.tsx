@@ -17,6 +17,15 @@ interface TextAreaBlockProps {
 export const TextArea: React.FC<TextAreaBlockProps> = ({
 	classes,
 }: TextAreaBlockProps): React.ReactElement => {
+	const [text, setText] = React.useState<string>("");
+	const textLimit = Math.round((text.length / 280) * 100);
+
+	const handelChangeText = (e: React.FormEvent<HTMLTextAreaElement>) => {
+		if (e.currentTarget) {
+			setText(e.currentTarget.value);
+		}
+	};
+
 	return (
 		<Paper>
 			<div className={classes.addForm}>
@@ -27,8 +36,10 @@ export const TextArea: React.FC<TextAreaBlockProps> = ({
 						src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VwZXJtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
 					/>
 					<TextareaAutosize
+						onChange={handelChangeText}
 						className={classes.addFormTextarea}
 						placeholder="What`s happening?"
+						value={text}
 					/>
 				</div>
 				<div className={classes.addFormBottom}>
@@ -43,18 +54,30 @@ export const TextArea: React.FC<TextAreaBlockProps> = ({
 						</IconButton>
 					</div>
 					<div className={classes.addFormBottomRigth}>
-						<span>280</span>
-						<div className={classes.addFormCircleProgress}>
-							<CircularProgress variant="determinate" size={20} />
-							<CircularProgress
-								style={{ color: "rgba(0, 0,0 , 0.1)" }}
-								variant="determinate"
-								size={20}
-								thickness={4}
-								value={100}
-							/>
-						</div>
-						<Button variant="contained">Tweet</Button>
+						{text && (
+							<>
+								<span>280</span>
+								<div className={classes.addFormCircleProgress}>
+									<CircularProgress
+										variant="determinate"
+										size={20}
+										thickness={5}
+										value={textLimit > 100 ? 100 : textLimit}
+										style={textLimit === 100 ? { color: "red" } : undefined}
+									/>
+									<CircularProgress
+										style={{ color: "rgba(0, 0, 0, 0.1)" }}
+										variant="determinate"
+										size={20}
+										thickness={5}
+										value={100}
+									/>
+								</div>
+							</>
+						)}
+						<Button disabled={textLimit >= 100} variant="contained">
+							Tweet
+						</Button>
 					</div>
 				</div>
 			</div>

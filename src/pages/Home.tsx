@@ -19,7 +19,8 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import { styled, Theme } from "@mui/material/styles";
+import styled from "@mui/system/styled";
+import { Theme } from "@mui/material";
 
 export const HomeUseStyles = makeStyles((theme: Theme) => ({
 	wrapper: { height: "100vh" },
