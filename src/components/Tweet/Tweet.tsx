@@ -3,7 +3,7 @@ import Avatar from "@mui/material/Avatar";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import classNames from "classnames";
-import { HomeUseStyles } from "../../pages/Home";
+import { HomeUseStyles } from "../../pages/HomeTheme";
 // Icon
 import IconButton from "@material-ui/core/IconButton";
 import CommentIcon from "@mui/icons-material/ModeCommentOutlined";

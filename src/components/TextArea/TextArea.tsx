@@ -4,7 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import Paper from "@mui/material/Paper";
-import { HomeUseStyles } from "../../pages/Home";
+import { HomeUseStyles } from "../../pages/HomeTheme";
 import classNames from "classnames";
 import ImageIcon from "@mui/icons-material/ImageOutlined";
 import EmojiIcon from "@mui/icons-material/SentimentSatisfiedOutlined";
@@ -13,17 +13,22 @@ import IconButton from "@material-ui/core/IconButton";
 interface TextAreaBlockProps {
 	classes: ReturnType<typeof HomeUseStyles>;
 }
-
+const MAX_TEXT = 280;
 export const TextArea: React.FC<TextAreaBlockProps> = ({
 	classes,
 }: TextAreaBlockProps): React.ReactElement => {
 	const [text, setText] = React.useState<string>("");
 	const textLimit = Math.round((text.length / 280) * 100);
+	const maxText = MAX_TEXT - text.length;
 
 	const handelChangeText = (e: React.FormEvent<HTMLTextAreaElement>) => {
 		if (e.currentTarget) {
 			setText(e.currentTarget.value);
 		}
+	};
+
+	const handelClickAdd = (): void => {
+		setText("");
 	};
 
 	return (
@@ -56,14 +61,16 @@ export const TextArea: React.FC<TextAreaBlockProps> = ({
 					<div className={classes.addFormBottomRigth}>
 						{text && (
 							<>
-								<span>280</span>
+								<span>{maxText}</span>
 								<div className={classes.addFormCircleProgress}>
 									<CircularProgress
 										variant="determinate"
 										size={20}
 										thickness={5}
-										value={textLimit > 100 ? 100 : textLimit}
-										style={textLimit === 100 ? { color: "red" } : undefined}
+										value={text.length >= MAX_TEXT ? 100 : textLimit}
+										style={
+											text.length >= MAX_TEXT ? { color: "red" } : undefined
+										}
 									/>
 									<CircularProgress
 										style={{ color: "rgba(0, 0, 0, 0.1)" }}
@@ -75,7 +82,11 @@ export const TextArea: React.FC<TextAreaBlockProps> = ({
 								</div>
 							</>
 						)}
-						<Button disabled={textLimit >= 100} variant="contained">
+						<Button
+							onClick={handelClickAdd}
+							disabled={text.length >= MAX_TEXT}
+							variant="contained"
+						>
 							Tweet
 						</Button>
 					</div>

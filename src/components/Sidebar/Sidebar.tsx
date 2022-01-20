@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@mui/material/Hidden";
-import { HomeUseStyles } from "../../pages/Home";
+import { HomeUseStyles } from "../../pages/HomeTheme";
 // Icon
 import SearchIcon from "@material-ui/icons/Search";
 import HomeIcon from "@material-ui/icons/Home";
@@ -104,6 +104,7 @@ export const Sidebar: React.FC<SidebarBlockProps> = ({
 			</li>
 			<li className={classes.sidebarListItem}>
 				<Button
+					//onClick={handelClickAdd}
 					style={{
 						boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
 						borderRadius: "30px",
