@@ -1,4 +1,10 @@
 import React from "react";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import Hidden from "@mui/material/Hidden";
+import { HomeUseStyles } from "../../pages/Home";
+// Icon
 import SearchIcon from "@material-ui/icons/Search";
 import HomeIcon from "@material-ui/icons/Home";
 import NotificationIcon from "@material-ui/icons/NotificationsOutlined";
@@ -7,8 +13,6 @@ import BookIcon from "@material-ui/icons/BookmarkBorder";
 import ListIcon from "@material-ui/icons/AssignmentOutlined";
 import UserIcon from "@material-ui/icons/PersonOutlineOutlined";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import { HomeUseStyles } from "../../pages/Home";
-import { Typography, IconButton, Button, Hidden } from "@mui/material";
 import CreateIcon from "@mui/icons-material/Create";
 
 interface SidebarBlockProps {

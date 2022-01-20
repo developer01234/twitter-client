@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { theme } from "./theme";
 import { Register } from "./pages/Register";
 import { Home } from "./pages/Home";
-import { CssBaseline } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
 
 ReactDOM.render(
 	<React.StrictMode>

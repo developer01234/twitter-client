@@ -1,12 +1,15 @@
 import React from "react";
-import { Typography, Paper, Avatar } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import classNames from "classnames";
+import { HomeUseStyles } from "../../pages/Home";
+// Icon
 import IconButton from "@material-ui/core/IconButton";
 import CommentIcon from "@mui/icons-material/ModeCommentOutlined";
 import RepostIcon from "@mui/icons-material/RepeatOutlined";
 import LikeIcon from "@mui/icons-material/FavoriteBorder";
 import UploadIcon from "@mui/icons-material/FileUploadOutlined";
-import classNames from "classnames";
-import { HomeUseStyles } from "../../pages/Home";
 
 interface TweetBlockProps {
 	text: string;

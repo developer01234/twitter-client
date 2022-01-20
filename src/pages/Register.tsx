@@ -1,6 +1,6 @@
 import React from "react";
-import { makeStyles } from "@mui/styles";
-import { Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import Typography from "@mui/material/Typography";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import SearchIcon from "@material-ui/icons/Search";
 import PeopleIcon from "@material-ui/icons/PeopleOutline";
