@@ -4,6 +4,8 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@mui/material/Hidden";
 import { HomeUseStyles } from "../../pages/HomeTheme";
+import { DialogBlock } from "../Dialog/Dialog";
+import { TextArea } from "../TextArea/TextArea";
 // Icon
 import SearchIcon from "@material-ui/icons/Search";
 import HomeIcon from "@material-ui/icons/Home";
@@ -22,6 +24,16 @@ interface SidebarBlockProps {
 export const Sidebar: React.FC<SidebarBlockProps> = ({
 	classes,
 }): React.ReactElement => {
+	const [open, setOpen] = React.useState<boolean>(false);
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
+
 	return (
 		<ul className={classes.sidebarList}>
 			<li className={classes.sidebarListItem}>
@@ -104,7 +116,7 @@ export const Sidebar: React.FC<SidebarBlockProps> = ({
 			</li>
 			<li className={classes.sidebarListItem}>
 				<Button
-					//onClick={handelClickAdd}
+					onClick={handleClickOpen}
 					style={{
 						boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
 						borderRadius: "30px",
@@ -118,6 +130,9 @@ export const Sidebar: React.FC<SidebarBlockProps> = ({
 						<CreateIcon />
 					</Hidden>
 				</Button>
+				<DialogBlock onClose={handleClose} open={open} title="">
+					<TextArea classes={classes} />
+				</DialogBlock>
 			</li>
 		</ul>
 	);

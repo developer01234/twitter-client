@@ -4,10 +4,8 @@ import StarsIcon from "@mui/icons-material/AutoAwesomeOutlined";
 import { Tweet } from "../components/Tweet/Tweet";
 import { Sidebar } from "../components/Sidebar/Sidebar";
 import SearchIcon from "@material-ui/icons/Search";
-import { TextArea } from "../components/TextArea/TextArea";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -17,29 +15,9 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import styled from "@mui/system/styled";
 import { HomeUseStyles } from "./HomeTheme";
-
-const SearchTwitter = styled(TextField)({
-	input: {
-		backgroundColor: "#E6ECF0",
-		padding: 0,
-		paddingLeft: 15,
-		"&.Mui-focused": {
-			backgroundColor: "#fff",
-			"& fieldset": { borderWidth: 1, borderColor: "#1DA1F2" },
-			"& svg path": { fill: "#1DA1F2" },
-		},
-	},
-	"&:hover": {
-		"& fieldset": { borderColor: "transparent" },
-	},
-	"& fieldset": {
-		borderWidth: 1,
-		borderColor: "#1DA1F2",
-	},
-	"& .MuiOutlinedInput-input": { padding: "12px 14px 14px 5px" },
-});
+import { SearchTwitter } from "../components/Search/Search";
+import { TextArea } from "../components/TextArea/TextArea";
 
 export const Home = (): React.ReactElement => {
 	const classes = HomeUseStyles();

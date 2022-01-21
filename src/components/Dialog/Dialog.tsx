@@ -39,7 +39,6 @@ export const DialogBlock: React.FC<DialogBlockProps> = ({
 					<CloseIcon style={{ fontSize: 26 }} />
 				</IconButton>
 				{title}
-				<hr />
 			</DialogTitle>
 			<DialogContent>{children}</DialogContent>
 		</Dialog>
