@@ -130,8 +130,10 @@ export const Sidebar: React.FC<SidebarBlockProps> = ({
 						<CreateIcon />
 					</Hidden>
 				</Button>
-				<DialogBlock onClose={handleClose} open={open} title="">
-					<TextArea classes={classes} />
+				<DialogBlock onClose={handleClose} open={open}>
+					<div style={{ width: 550 }}>
+						<TextArea maxRows={15} classes={classes} />
+					</div>
 				</DialogBlock>
 			</li>
 		</ul>

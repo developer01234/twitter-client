@@ -3,7 +3,6 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
-import Paper from "@mui/material/Paper";
 import { HomeUseStyles } from "../../pages/HomeTheme";
 import classNames from "classnames";
 import ImageIcon from "@mui/icons-material/ImageOutlined";
@@ -12,10 +11,12 @@ import IconButton from "@material-ui/core/IconButton";
 
 interface TextAreaBlockProps {
 	classes: ReturnType<typeof HomeUseStyles>;
+	maxRows?: number;
 }
 const MAX_TEXT = 280;
 export const TextArea: React.FC<TextAreaBlockProps> = ({
 	classes,
+	maxRows,
 }: TextAreaBlockProps): React.ReactElement => {
 	const [text, setText] = React.useState<string>("");
 	const textLimit = Math.round((text.length / 280) * 100);
@@ -32,7 +33,7 @@ export const TextArea: React.FC<TextAreaBlockProps> = ({
 	};
 
 	return (
-		<Paper>
+		<div>
 			<div className={classes.addForm}>
 				<div className={classes.addFormBody}>
 					<Avatar
@@ -92,7 +93,6 @@ export const TextArea: React.FC<TextAreaBlockProps> = ({
 					</div>
 				</div>
 			</div>
-			<div className={classes.addFormBottomLine} />
-		</Paper>
+		</div>
 	);
 };

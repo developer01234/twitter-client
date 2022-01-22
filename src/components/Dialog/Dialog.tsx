@@ -8,7 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 interface DialogBlockProps {
 	classes?: ReturnType<typeof RegisterUseStyles>;
-	title: string;
+	title?: string;
 	children: React.ReactNode;
 	open?: boolean;
 	onClose: () => void;
@@ -25,7 +25,7 @@ export const DialogBlock: React.FC<DialogBlockProps> = ({
 	}
 
 	return (
-		<Dialog open={open} onClose={onClose}>
+		<Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title">
 			<DialogTitle style={{ fontWeight: 800 }} id="form-dialog-title">
 				<IconButton
 					onClick={onClose}

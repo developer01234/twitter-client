@@ -93,9 +93,7 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 		padding: "30px",
 		marginTop: "50px",
 	},
-	addForm: {
-		padding: 20,
-	},
+	addForm: { padding: 20 },
 	addFormBody: {
 		display: "flex",
 		width: "100%",

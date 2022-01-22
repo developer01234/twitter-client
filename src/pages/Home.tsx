@@ -36,7 +36,12 @@ export const Home = (): React.ReactElement => {
 									<StarsIcon />
 								</IconButton>
 							</Typography>
-							<TextArea classes={classes} />
+						</Paper>
+						<Paper>
+							<div className={classes.addForm}>
+								<TextArea classes={classes} />
+							</div>
+							<div className={classes.addFormBottomLine} />
 						</Paper>
 						{[
 							...new Array(20).fill(
