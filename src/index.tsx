@@ -7,6 +7,8 @@ import { theme } from "./theme";
 import { Register } from "./pages/Register";
 import { Home } from "./pages/Home";
 import CssBaseline from "@mui/material/CssBaseline";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -14,8 +16,22 @@ ReactDOM.render(
 			<CssBaseline />
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<Register />} />
-					<Route path="/home" element={<Home />} />
+					<Route
+						path="/"
+						element={
+							<Provider store={store}>
+								<Register />
+							</Provider>
+						}
+					/>
+					<Route
+						path="/home"
+						element={
+							<Provider store={store}>
+								<Home />
+							</Provider>
+						}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</ThemeProvider>
