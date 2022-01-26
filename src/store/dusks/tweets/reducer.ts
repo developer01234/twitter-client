@@ -14,6 +14,11 @@ export const tweetsReducer = produce(
 			draft.loadingState = LoadingState.LOADED;
 		}
 
+		if (action.type === ActionType.FETCH_TWEETS) {
+			draft.items = [];
+			draft.loadingState = LoadingState.LOADING;
+		}
+
 		if (action.type === ActionType.SET_LOADING_STATE) {
 			draft.loadingState = action.payload;
 		}

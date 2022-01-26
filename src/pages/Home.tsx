@@ -18,9 +18,24 @@ import Avatar from "@mui/material/Avatar";
 import { HomeUseStyles } from "./HomeTheme";
 import { SearchTwitter } from "../components/Search/Search";
 import { TextArea } from "../components/TextArea/TextArea";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTweets } from "../store/dusks/tweets/actions/action";
+import {
+	selectIsLoading,
+	selectTweetsItems,
+} from "../store/dusks/tweets/selectors";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const Home = (): React.ReactElement => {
 	const classes = HomeUseStyles();
+	const dispatch = useDispatch();
+	const tweets = useSelector(selectTweetsItems);
+	const isLoading = useSelector(selectIsLoading);
+
+	React.useEffect(() => {
+		dispatch(fetchTweets());
+	}, [dispatch]);
+
 	return (
 		<Container maxWidth="lg" className={classes.wrapper}>
 			<Grid container spacing={3}>
@@ -43,20 +58,20 @@ export const Home = (): React.ReactElement => {
 							</div>
 							<div className={classes.addFormBottomLine} />
 						</Paper>
-						{[
-							...new Array(20).fill(
+						{isLoading ? (
+							<div>
+								<CircularProgress />
+							</div>
+						) : (
+							tweets.map((tweet) => (
 								<Tweet
-									user={{
-										fullname: "test",
-										username: "tester",
-										avatar:
-											"https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VwZXJtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-									}}
+									key={tweet._id}
+									user={tweet.user}
 									classes={classes}
-									text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, voluptatum."
+									text={tweet.text}
 								/>
-							),
-						]}
+							))
+						)}
 					</Paper>
 				</Grid>
 				<Grid sm={3} md={3} item>

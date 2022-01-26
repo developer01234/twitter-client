@@ -1,5 +1,4 @@
 import { ActionType, setLoading, setTweets } from "./actions/action";
-// import axios from "axios";
 import { call, put, takeLatest } from "redux-saga/effects";
 import { TweetsApi } from "../../../services/api/tweetsApi";
 import { LoadingState } from "./contracts/state";
