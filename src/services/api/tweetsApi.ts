@@ -3,8 +3,6 @@ import axios from "axios";
 
 export const TweetsApi = {
 	fetchTweets(): Promise<TweetsState["items"]> {
-		return axios
-			.get("https://trycode.pw/c/LXC9A.json")
-			.then(({ data }) => data);
+		return axios.get("http://localhost:3001/tweets").then(({ data }) => data);
 	},
 };

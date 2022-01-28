@@ -1,0 +1,37 @@
+{
+	"tweets": [
+		{
+			"_id": "61f428a1ccf5ca1b0368f0f9",
+			"text": "Consectetur ex velit tempor quis ad excepteur. Cupidatat excepteur deserunt sint irure.",
+			"user": {
+				"fullname": "Knapp Rodgers",
+				"username": "rae",
+				"avatar": "https://source.unsplash.com/random"
+			}
+		},
+		{
+			"_id": "61f428a166fc893b7733bde3",
+			"text": "Ipsum reprehenderit adipisicing laboris ut cillum laboris aute ipsum mollit deserunt proident irure dolor esse. Culpa non non Lorem labore qui aute nostrud do laboris.",
+			"user": {
+				"fullname": "Elsa Albert",
+				"username": "ana",
+				"avatar": "https://source.unsplash.com/random"
+			}
+		},
+		{
+			"_id": "61f428a111d3495f48a6fe72",
+			"text": "Non laboris in aute qui elit fugiat quis. Sint ut incididunt minim anim laboris mollit officia et in pariatur duis.",
+			"user": {
+				"fullname": "Guthrie Cervantes",
+				"username": "theresa",
+				"avatar": "https://source.unsplash.com/random"
+			}
+		}
+	],
+	"user": {
+		"_id": "000000000000000000000000000000",
+		"fullname": "Tester",
+		"username": "tester",
+		"avatar": "https://source.unsplash.com/random"
+	}
+}
