@@ -160,4 +160,5 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 		},
 		"&:hover": { backgroundColor: "#edf3f6" },
 	},
+	tweetsCenter: { textAlign: "center", marginTop: 50 },
 }));
