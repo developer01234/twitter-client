@@ -33,5 +33,18 @@
 		"fullname": "Tester",
 		"username": "tester",
 		"avatar": "https://source.unsplash.com/random"
-	}
+	},
+	"themes": [],
+	"users": [
+		{
+			"fullname": "Guthrie Cervantes",
+			"username": "theresa",
+			"avatar": "https://source.unsplash.com/random"
+		},
+		{
+			"fullname": "Tester",
+			"username": "tester",
+			"avatar": "https://source.unsplash.com/random"
+		}
+	]
 }
