@@ -5,13 +5,13 @@ import { LoadingState } from "./contracts/state";
 
 export function* fetchResponse(): any {
 	try {
-		const data = yield call(TweetsApi.fetchTweets);
+		const data = yield call(TweetsApi.fetchTweetsResponse);
 		yield put(setTweets(data));
 	} catch (error) {
 		yield put(setLoading(LoadingState.ERROR));
 	}
 }
 
-export function* testSaga() {
+export function* tweetsSaga() {
 	yield takeLatest(ActionType.FETCH_TWEETS, fetch);
 }

@@ -28,13 +28,10 @@
 			}
 		}
 	],
-	"user": {
-		"_id": "000000000000000000000000000000",
-		"fullname": "Tester",
-		"username": "tester",
-		"avatar": "https://source.unsplash.com/random"
-	},
-	"themes": [],
+	"tags": [
+		{ "name": "#Beijing2022", "count": 42 },
+		{ "name": "#навальныйчетверг", "count": 42 }
+	],
 	"users": [
 		{
 			"fullname": "Guthrie Cervantes",
@@ -46,5 +43,11 @@
 			"username": "tester",
 			"avatar": "https://source.unsplash.com/random"
 		}
-	]
+	],
+	"user": {
+		"_id": "61f428a111d3495f48a6fe73",
+		"fullname": "Tester",
+		"username": "tester",
+		"avatar": "https://source.unsplash.com/random"
+	}
 }
