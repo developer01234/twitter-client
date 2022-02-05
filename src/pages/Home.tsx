@@ -3,20 +3,12 @@ import IconButton from "@material-ui/core/IconButton";
 import StarsIcon from "@mui/icons-material/AutoAwesomeOutlined";
 import { Tweet } from "../components/Tweet/Tweet";
 import { Sidebar } from "../components/Sidebar/Sidebar";
-import SearchIcon from "@material-ui/icons/Search";
+import { Tags } from "../components/Tags/Tags";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import InputAdornment from "@mui/material/InputAdornment";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import Divider from "@mui/material/Divider";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
 import { HomeUseStyles } from "./HomeTheme";
-import { SearchTwitter } from "../components/Search/Search";
 import { TextArea } from "../components/TextArea/TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTweets } from "../store/dusks/tweets/actions/action";
@@ -25,6 +17,14 @@ import {
 	selectTweetsItems,
 } from "../store/dusks/tweets/selectors";
 import CircularProgress from "@mui/material/CircularProgress";
+import { fetchTags } from "../store/tags/actions/action";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import { SearchTwitter } from "../components/Search/Search";
+import SearchIcon from "@material-ui/icons/Search";
+import InputAdornment from "@mui/material/InputAdornment";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
 
 export const Home = (): React.ReactElement => {
 	const classes = HomeUseStyles();
@@ -34,6 +34,7 @@ export const Home = (): React.ReactElement => {
 
 	React.useEffect(() => {
 		dispatch(fetchTweets());
+		dispatch(fetchTags());
 	}, [dispatch]);
 
 	return (
@@ -88,46 +89,7 @@ export const Home = (): React.ReactElement => {
 							}}
 							fullWidth
 						/>
-						<Paper className={classes.rightSideBlock}>
-							<Paper className={classes.rightSideBlockHeader}>
-								<b>Trends for you</b>
-							</Paper>
-							<List>
-								<ListItem className={classes.rightSideBlockItem}>
-									<ListItemText
-										primary="Russia"
-										secondary={
-											<Typography component="span" variant="body2">
-												tweets: 400 000
-											</Typography>
-										}
-									/>
-								</ListItem>
-								<Divider component="li" />
-								<ListItem className={classes.rightSideBlockItem}>
-									<ListItemText
-										primary="#Covid19"
-										secondary={
-											<Typography component="span" variant="body2">
-												tweets: 500 000
-											</Typography>
-										}
-									/>
-								</ListItem>
-								<Divider component="li" />
-								<ListItem className={classes.rightSideBlockItem}>
-									<ListItemText
-										primary="#SARS-CoV-2"
-										secondary={
-											<Typography component="span" variant="body2">
-												tweets: 500 000
-											</Typography>
-										}
-									/>
-								</ListItem>
-								<Divider component="li" />
-							</List>
-						</Paper>
+						<Tags classes={classes} />
 						<Paper className={classes.rightSideBlock}>
 							<Paper className={classes.rightSideBlockHeader}>
 								<b>Who to follow</b>

@@ -4,9 +4,9 @@ import { TagsApi } from "../../services/api/tagsApi";
 import { LoadingState } from "./contracts/state";
 import { TagsActionType } from "./actions/action";
 
-export function* fetchTagsResponse(): any {
+export function* fetchTagsRequest(): any {
 	try {
-		const data = yield call(TagsApi.fetchTagsResponse);
+		const data = yield call(TagsApi.fetchTags);
 		yield put(setTags(data));
 	} catch (error) {
 		yield put(setLoading(LoadingState.ERROR));
@@ -14,5 +14,5 @@ export function* fetchTagsResponse(): any {
 }
 
 export function* tagsSaga() {
-	yield takeLatest(TagsActionType.FETCH_TAGS, fetchTagsResponse);
+	yield takeLatest(TagsActionType.FETCH_TAGS, fetchTagsRequest);
 }
