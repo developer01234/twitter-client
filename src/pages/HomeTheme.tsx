@@ -159,6 +159,7 @@ export const HomeUseStyles = makeStyles((theme: Theme) => ({
 			margin: 0,
 		},
 		"&:hover": { backgroundColor: "#edf3f6" },
+		"& a": { color: "inherit", textDecoration: "none" },
 	},
 	tweetsCenter: { textAlign: "center", marginTop: 50 },
 }));

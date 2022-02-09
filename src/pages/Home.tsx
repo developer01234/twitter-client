@@ -59,6 +59,7 @@ export const Home = (): React.ReactElement => {
 							</div>
 							<div className={classes.addFormBottomLine} />
 						</Paper>
+
 						{isLoading ? (
 							<div className={classes.tweetsCenter}>
 								<CircularProgress />

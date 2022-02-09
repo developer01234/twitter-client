@@ -8,6 +8,7 @@ import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import { useSelector } from "react-redux";
 import { selectIsLoaded, selectTagsItems } from "../../store/tags/selectors";
+import { Link } from "react-router-dom";
 
 interface TagsProps {
 	classes: ReturnType<typeof HomeUseStyles>;
@@ -30,20 +31,22 @@ export const Tags: React.FC<TagsProps> = ({
 			</Paper>
 			<List>
 				{items.map((obj) => (
-					<>
-						<ListItem key={obj._id} className={classes.rightSideBlockItem}>
-							<ListItemText
-								primary={obj.name}
-								secondary={
-									<Typography component="span" variant="body2">
-										tweets: {obj.count}
-									</Typography>
-								}
-							/>
+					<React.Fragment key={obj._id}>
+						<ListItem className={classes.rightSideBlockItem}>
+							<Link to={`search?q=${obj.name}`}>
+								<ListItemText
+									primary={obj.name}
+									secondary={
+										<Typography component="span" variant="body2">
+											tweets: {obj.count}
+										</Typography>
+									}
+								/>
+							</Link>
 						</ListItem>
-					</>
+						<Divider component="li" />
+					</React.Fragment>
 				))}
-				<Divider component="li" />
 			</List>
 		</Paper>
 	);

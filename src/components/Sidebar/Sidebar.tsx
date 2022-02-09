@@ -6,6 +6,7 @@ import Hidden from "@mui/material/Hidden";
 import { HomeUseStyles } from "../../pages/HomeTheme";
 import { DialogBlock } from "../Dialog/Dialog";
 import { TextArea } from "../TextArea/TextArea";
+import { Link } from "react-router-dom";
 // Icon
 import SearchIcon from "@material-ui/icons/Search";
 import HomeIcon from "@material-ui/icons/Home";
@@ -37,82 +38,98 @@ export const Sidebar: React.FC<SidebarBlockProps> = ({
 	return (
 		<ul className={classes.sidebarList}>
 			<li className={classes.sidebarListItem}>
-				<IconButton>
-					<TwitterIcon
-						className={classes.sidebarListItemIcon}
-						style={{ color: "#1DA1F3", fontSize: 36, margin: "10px 0" }}
-					/>
-				</IconButton>
+				<Link to="/">
+					<IconButton>
+						<TwitterIcon
+							className={classes.sidebarListItemIcon}
+							style={{ color: "#1DA1F3", fontSize: 36, margin: "10px 0" }}
+						/>
+					</IconButton>
+				</Link>
 			</li>
 			<li className={classes.sidebarListItem}>
-				<div>
-					<HomeIcon className={classes.sidebarListItemIcon} />
-					<Hidden smDown>
-						<Typography className={classes.sidebarListItemLabel} variant="h6">
-							Home
-						</Typography>
-					</Hidden>
-				</div>
+				<Link to="/home">
+					<div>
+						<HomeIcon className={classes.sidebarListItemIcon} />
+						<Hidden smDown>
+							<Typography className={classes.sidebarListItemLabel} variant="h6">
+								Home
+							</Typography>
+						</Hidden>
+					</div>
+				</Link>
 			</li>
 			<li className={classes.sidebarListItem}>
-				<div>
-					<SearchIcon className={classes.sidebarListItemIcon} />
-					<Hidden smDown>
-						<Typography className={classes.sidebarListItemLabel} variant="h6">
-							Search
-						</Typography>
-					</Hidden>
-				</div>
+				<Link to="/search">
+					<div>
+						<SearchIcon className={classes.sidebarListItemIcon} />
+						<Hidden smDown>
+							<Typography className={classes.sidebarListItemLabel} variant="h6">
+								Search
+							</Typography>
+						</Hidden>
+					</div>
+				</Link>
 			</li>
 			<li className={classes.sidebarListItem}>
-				<div>
-					<NotificationIcon className={classes.sidebarListItemIcon} />
-					<Hidden smDown>
-						<Typography className={classes.sidebarListItemLabel} variant="h6">
-							Notifications
-						</Typography>
-					</Hidden>
-				</div>
+				<Link to="/notifications">
+					<div>
+						<NotificationIcon className={classes.sidebarListItemIcon} />
+						<Hidden smDown>
+							<Typography className={classes.sidebarListItemLabel} variant="h6">
+								Notifications
+							</Typography>
+						</Hidden>
+					</div>
+				</Link>
 			</li>
 			<li className={classes.sidebarListItem}>
-				<div>
-					<MailIcon className={classes.sidebarListItemIcon} />
-					<Hidden smDown>
-						<Typography className={classes.sidebarListItemLabel} variant="h6">
-							Messages
-						</Typography>
-					</Hidden>
-				</div>
+				<Link to="/messages">
+					<div>
+						<MailIcon className={classes.sidebarListItemIcon} />
+						<Hidden smDown>
+							<Typography className={classes.sidebarListItemLabel} variant="h6">
+								Messages
+							</Typography>
+						</Hidden>
+					</div>
+				</Link>
 			</li>
 			<li className={classes.sidebarListItem}>
-				<div>
-					<BookIcon className={classes.sidebarListItemIcon} />
-					<Hidden smDown>
-						<Typography className={classes.sidebarListItemLabel} variant="h6">
-							BookMarks
-						</Typography>
-					</Hidden>
-				</div>
+				<Link to="/bookmarks">
+					<div>
+						<BookIcon className={classes.sidebarListItemIcon} />
+						<Hidden smDown>
+							<Typography className={classes.sidebarListItemLabel} variant="h6">
+								BookMarks
+							</Typography>
+						</Hidden>
+					</div>
+				</Link>
 			</li>
 			<li className={classes.sidebarListItem}>
-				<div>
-					<ListIcon className={classes.sidebarListItemIcon} />
-					<Hidden smDown>
-						<Typography className={classes.sidebarListItemLabel} variant="h6">
-							Lists
-						</Typography>
-					</Hidden>
-				</div>
+				<Link to="/lists">
+					<div>
+						<ListIcon className={classes.sidebarListItemIcon} />
+						<Hidden smDown>
+							<Typography className={classes.sidebarListItemLabel} variant="h6">
+								Lists
+							</Typography>
+						</Hidden>
+					</div>
+				</Link>
 			</li>
 			<li className={classes.sidebarListItem}>
-				<div>
-					<UserIcon className={classes.sidebarListItemIcon} />
-					<Hidden smDown>
-						<Typography className={classes.sidebarListItemLabel} variant="h6">
-							Profile
-						</Typography>
-					</Hidden>
-				</div>
+				<Link to="/profile">
+					<div>
+						<UserIcon className={classes.sidebarListItemIcon} />
+						<Hidden smDown>
+							<Typography className={classes.sidebarListItemLabel} variant="h6">
+								Profile
+							</Typography>
+						</Hidden>
+					</div>
+				</Link>
 			</li>
 			<li className={classes.sidebarListItem}>
 				<Button
