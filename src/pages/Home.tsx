@@ -59,19 +59,13 @@ export const Home = (): React.ReactElement => {
 							</div>
 							<div className={classes.addFormBottomLine} />
 						</Paper>
-
 						{isLoading ? (
 							<div className={classes.tweetsCenter}>
 								<CircularProgress />
 							</div>
 						) : (
 							tweets.map((tweet) => (
-								<Tweet
-									key={tweet._id}
-									user={tweet.user}
-									classes={classes}
-									text={tweet.text}
-								/>
+								<Tweet key={tweet._id} classes={classes} {...tweet} />
 							))
 						)}
 					</Paper>

@@ -38,7 +38,7 @@ export const Sidebar: React.FC<SidebarBlockProps> = ({
 	return (
 		<ul className={classes.sidebarList}>
 			<li className={classes.sidebarListItem}>
-				<Link to="/">
+				<Link to="/home">
 					<IconButton>
 						<TwitterIcon
 							className={classes.sidebarListItemIcon}
